@@ -22,3 +22,16 @@ $router->get('/', function () use ($router) {
  * Hello Controller
  */
 $router->get('/hello', 'HelloController@hello');
+
+/**
+ * Hello with params
+ */
+$router->group(['prefix' => 'hello'], function () use ($router){
+
+    // Get method
+    $router->get('/get/{name}', 'HelloController@getHello');
+
+    // Post method
+    $router->post('/post', 'HelloController@postHello');
+
+});
